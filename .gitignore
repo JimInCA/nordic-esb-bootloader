@@ -1,0 +1,10 @@
+*.hex
+_build
+RTE
+*.uvguix.*
+JLinkLog.txt
+JLinkSettings.ini
+EventRecorderStub.scvd
+*.TMP
+*.pyc
+/bootloader/build/pca10031/armgcc/.*
