@@ -361,22 +361,22 @@
 
 // <o> HCI_UART_RX_PIN - UART RX pin 
 #ifndef HCI_UART_RX_PIN
-#define HCI_UART_RX_PIN 20
+#define HCI_UART_RX_PIN 11
 #endif
 
 // <o> HCI_UART_TX_PIN - UART TX pin 
 #ifndef HCI_UART_TX_PIN
-#define HCI_UART_TX_PIN 19
+#define HCI_UART_TX_PIN 9
 #endif
 
 // <o> HCI_UART_RTS_PIN - UART RTS pin 
 #ifndef HCI_UART_RTS_PIN
-#define HCI_UART_RTS_PIN 18
+#define HCI_UART_RTS_PIN 8
 #endif
 
 // <o> HCI_UART_CTS_PIN - UART CTS pin 
 #ifndef HCI_UART_CTS_PIN
-#define HCI_UART_CTS_PIN 17
+#define HCI_UART_CTS_PIN 10
 #endif
 
 // </e>
