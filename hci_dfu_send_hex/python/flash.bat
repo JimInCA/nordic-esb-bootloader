@@ -1,8 +1,8 @@
 @echo off
 
 SET HOME="C:\Users\Jim\Development"
-SET PORT="COM4"
-SET BAUDRATE="38400"
+SET PORT="COM8"
+SET BAUDRATE="115200"
 
 if "%1" == "blinky" (
 	SET FILE="%HOME%\Nordic\nRF5_SDK_14.2.0_17b948a\development\nordic_esb\blinky\build\pca10031\keil5\_build\blinky.hex" 
@@ -15,6 +15,6 @@ if "%1" == "blinky" (
 	GOTO END
 )
 
-python %HOME%\Nordic\nRF5_SDK_14.2.0_17b948a\development\nordic_esb\hci_dfu_send_hex\hci_dfu_send_hex.py --file %FILE% --port %PORT% --baudrate %BAUDRATE%
+python %HOME%\Nordic\nRF5_SDK_14.2.0_17b948a\development\nordic_esb\hci_dfu_send_hex\python\hci_dfu_send_hex.py --file %FILE% --port %PORT% --baudrate %BAUDRATE%
 
 :END
