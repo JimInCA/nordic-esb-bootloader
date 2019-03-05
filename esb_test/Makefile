@@ -1,8 +1,8 @@
 #
-# This Makefile is intended to build rf_test for Linux
+# This Makefile is intended to build esb_test for Linux
 #
 
-APP        = rf_test
+APP        = esb_test
 
 CC         = gcc
 LINKER     = $(CC) -o
