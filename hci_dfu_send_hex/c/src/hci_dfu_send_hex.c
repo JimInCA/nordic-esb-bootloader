@@ -205,16 +205,17 @@ void send_packet(HANDLE uart, uint8_t *packet, int16_t length)
 
 int8_t get_acknowledgement(HANDLE uart)
 {
-    int16_t i, rdlen, total_read;
+    int16_t i, total_read;
     uint8_t rd_buf[16];
     int8_t ack;
     int16_t count;
-    uint32_t rd_len;
+    uint32_t rdlen, rd_len;
 
     rdlen = total_read = count = 0;
     do {
         // rdlen += read(uart, &rd_buf[rdlen], 1);  // JTN
         ReadFile(uart, &rd_buf[rdlen], 1, &rd_len, NULL);
+        rdlen += rd_len;
     } while ((rdlen < 6) && (++count < 10));
     if (rdlen != 6)
         return -1;
@@ -308,12 +309,13 @@ int main(int argc, char **argv)
         return result;
     }
 
-    printf("Sending file %s to port %s at baudrate %ld\n", file_name, portname, baudrate);
-
-    if (init_uart(portname, 115200) != 0) {
+    if (init_uart(portname, baudrate) != 0) {
         printf("Error opening %s: %s\n", portname, strerror(errno));
         return -1;
     }
+
+    printf("Sending file %s to port %s at baudrate %ld\n", file_name, portname, baudrate);
+    fflush(stdout);
 
     // let's open the file and check for errors
     fp = fopen(file_name, "r");
