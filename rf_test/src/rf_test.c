@@ -316,7 +316,7 @@ int32_t main(int32_t argc, uint8_t **argv)
             if ( (eeh > 0) && (halt > 0) )
                 break;
             printf("Total Executed: %d, Passing: %d, Failing: %d\n", test_count, test_count - eeh, eeh);
-            fflush(stdin);
+            fflush(stdout);
             test_count++;
         } while (--loop > 0);
     }
