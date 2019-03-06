@@ -1,4 +1,4 @@
-PROJECT_NAME     := echo
+PROJECT_NAME     := esb_echo
 TARGETS          := $(PROJECT_NAME)
 OUTPUT_DIRECTORY := _build
 

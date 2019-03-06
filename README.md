@@ -1,14 +1,14 @@
 Nordic ESB RF Firmware Repository
 ===
 
-This repository contains the code to build the firmware for the Nordic RF device that uses the Nordic proprietary Enhanced Shock Burst (ESB) protocol.
+This repository contains the code to build the firmware for the Nordic RF devices that support the Nordic proprietary Enhanced Shock Burst (ESB) protocol.
 
 Installing the Build Environment
 ---
 
 The best way to do this is to go to the Nordic website and follow their instructions on installing the required environment.  This will require you to go to http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v14.x.x/.  When the page opens, click on nRF5_SDK_14.2.0_17b948a.zip to download and then expand the zip file.
 
-Next, you'll need to install the ARM version of the gcc compiler.  You will first need to go to the ARM web site at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads and download the correct version for your system.  You have two different options here; you can do this under windows
+Next, you'll need to install the ARM version of the gcc compiler.  You will first need to go to the ARM web site at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads and download the correct version for your system.  Please be aware that there may be a problem with the latest version of the compiler.  The last version that I know of that will build the sources in this repository with out andy errors is release 7.3.1.  You can try later version, but be aware that you may get errors and that you may have to uninstall that version and go to an earlier version.
 
 Installing Source Code
 ---
@@ -20,7 +20,7 @@ cd <dev_dir>/nRF5_SDK_14.2.0_17b948a/
 mkdir development
 cd development
 ```
-Once you have that done, installing our sources is a simple process of going to this repository and selecting 'Clone or download', which instructs git to copy the path for into your clipboard.  Then go back to the terminal window where you created the directory above and enter the following git command (this assumes that you have git installed):
+Once you have that done, installing the sources is a simple process of going to this repository and selecting 'Clone or download', which instructs git to copy the path for into your clipboard.  Then go back to the terminal window where you created the directory above and enter the following git command (this assumes that you have git installed):
 ```
 git clone https://github.com/JimInCA/nordic_esp.git
 ```
