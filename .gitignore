@@ -3,10 +3,12 @@ x64
 *.hex
 _build
 RTE
+obj
+bin
 *.uvguix.*
 JLinkLog.txt
 JLinkSettings.ini
 EventRecorderStub.scvd
 *.TMP
 *.pyc
-/bootloader/build/pca10031/armgcc/.*
+*.user

@@ -187,7 +187,7 @@ uint16_t HciPacket(uint8_t *output_array, uint8_t *input_array, uint16_t input_l
 void send_packet(HANDLE uart, uint8_t *packet, int16_t length)
 {
     int16_t i;
-    uint32_t wr_len;
+    unsigned long wr_len;
 
     //write(uart, packet, length);  // JTN
     WriteFile(uart, packet, length, &wr_len, NULL);
@@ -205,11 +205,11 @@ void send_packet(HANDLE uart, uint8_t *packet, int16_t length)
 
 int8_t get_acknowledgement(HANDLE uart)
 {
-    int16_t i, total_read;
+    int16_t total_read;
     uint8_t rd_buf[16];
     int8_t ack;
     int16_t count;
-    uint32_t rdlen, rd_len;
+    unsigned long i, rdlen, rd_len;
 
     rdlen = total_read = count = 0;
     do {

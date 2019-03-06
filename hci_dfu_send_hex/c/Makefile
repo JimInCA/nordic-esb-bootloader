@@ -6,8 +6,7 @@
 
 APP        = hci_dfu_send_hex
 
-CC         = ../../prebuilts/toolschain/usr/bin/arm-linux-gcc
-#CC         = gcc
+CC         = gcc
 LINKER     = $(CC) -o
 RM         = rm -f
 MKDIR      = mkdir -p

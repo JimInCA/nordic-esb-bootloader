@@ -1,7 +1,30 @@
-ESB Test Program Documentation
+ESB Test Program
 ===
-This README documents the usage of the test program esb_test.  The intent of this program is to test the esb user interface between two different Nordic RF wireless devices.
+This README documents the test program esb_test.  The intent of this program is to test the esb user interface between two different Nordic RF wireless devices.
 
+Installing Required Software
+---
+You will need to download and install the gcc compiler along with the tools that you'll need to run make. You can do this through either Cygwin or MinGW.  The choice is up to you as to which one you want to use.  Here are some links to get you started:
+```
+https://sourceware.org/cygwin/
+http://www.mingw.org/
+```
+To me, this always seems to be a little bit of a struggle for there isn't one single application installer that seems to do everything that you need.  So it gets to be a little bit of a hunt-and-peck process, but stick with it and you'll eventually get things to work properly.
+
+Building the Test Program
+---
+Once you can run make and have it call gcc, building the test program is as simple as entering the fillowing command:
+```
+$ cd <path>/nordic_esb/esb_test
+$ make all
+gcc  -c -o obj/esb_test.o src/esb_test.c
+Compiled obj/esb_test.o successfully!
+gcc -o  bin/esb_test obj/esb_test.o
+aLinking bin/esb_test complete!
+```
+
+Executing Test Program
+---
 First of all, you will need two different Nordic dongles, part number PCA10031, in order to test the esb interface.
 
 The concept of this test program is very simple.  It transmits out a packet of data and expects to receive the transmitted packet back.  When it does, it then compares the received data with the packet that was sent to verify that the test completed successfully.  It then completes by writing out the results of the test.
@@ -39,3 +62,21 @@ program:
             N > 0   Data is displayed as a string (not very useful)
 -f      Sets the packet size for fixed size tests.  Default is 246
 ```
+
+Simple Test Execution Example
+---
+Here is an example run.  In it, test 3 is being executed (random packet size with random data) for 5 test executions:
+```
+$ ./bin/esb_test -n COM9 -t 3 -c 5
+port: COM9, count: 5
+Successfully connected to UART on port COM9 at baud rate 115200.
+DCB is ready for use.
+Running Test 3
+Total Executed: 1, Passing: 1, Failing: 0
+Total Executed: 2, Passing: 2, Failing: 0
+Total Executed: 3, Passing: 3, Failing: 0
+Total Executed: 4, Passing: 4, Failing: 0
+Total Executed: 5, Passing: 5, Failing: 0
+```
+
+And there you have it, a simple way of testing your device.  As an additional debugging option, you should be able to attach a serial port to the dongle program that's running the echo program.  It will display messages when it receives a packet, the size of the packing, and if it was successful in retransmitting the packet. 

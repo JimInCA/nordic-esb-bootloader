@@ -1,14 +1,14 @@
-Nordic ESB RF Firmware Repository
+Nordic ESB w/Bootloader Firmware
 ===
 
-This repository contains the code to build the firmware for the Nordic RF devices that support the Nordic proprietary Enhanced Shock Burst (ESB) protocol.
+This repository contains the code to build the firmware for the Nordic RF devices that support the Nordic proprietary Enhanced Shock Burst (ESB) protocol.  Included in this repository is a bootloader that is compatible with the ESB protocol.  This bootloader provides the ability to update the application firmware with an included loader.  
 
 Installing the Build Environment
 ---
 
 The best way to do this is to go to the Nordic website and follow their instructions on installing the required environment.  This will require you to go to http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v14.x.x/.  When the page opens, click on nRF5_SDK_14.2.0_17b948a.zip to download and then expand the zip file.
 
-Next, you'll need to install the ARM version of the gcc compiler.  You will first need to go to the ARM web site at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads and download the correct version for your system.  Please be aware that there may be a problem with the latest version of the compiler.  The last version that I know of that will build the sources in this repository with out andy errors is release 7.3.1.  You can try later version, but be aware that you may get errors and that you may have to uninstall that version and go to an earlier version.
+Next, you'll need to install the ARM version of the gcc compiler.  You will first need to go to the ARM web site at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads and download the correct version for your system.  Please be aware that there may be a problem with the latest version of the compiler.  The last version that I know of that will build the sources in this repository with out any errors is release 7.3.1.  You can try a later version, but be aware that you may get errors and that you may have to uninstall that version and go to an earlier version.
 
 Installing Source Code
 ---
@@ -39,10 +39,10 @@ Add the following #define:
 ```
 Please be aware that you may also have to update the following file so that it points to the correct gcc version that you are using:
 ```
-<dev_dir>/nRF5_SDK_14.2.0_17b948a/components/toolchain/gcc/Makefile.posix
+<dev_dir>/nRF5_SDK_14.2.0_17b948a/components/toolchain/gcc/Makefile.windows
 ```
 
-Building our Source Code
+Building the Source Code
 ---
 
 Once you have everything installed and updated, you're ready for build our firmware.
@@ -57,7 +57,6 @@ make all
 ```
 The firmware binary will be placed in the '.\armgcc\_build' directory.
 
-
 Installing the firmware
 ---
 
@@ -65,4 +64,4 @@ To install the firmware, all you will need to do is to have the dongle installed
 ```
 make flash
 ```
-This should install the firmware on the dongle.  At least, I hope this will work.  I may have forgotten that the JLINK software needs to be installed, but I did this so long ago, that I can' remember.
+This should install the firmware on the dongle.  At least, I hope this will work.  I may have forgotten that the JLINK software needs to be installed, but I did this so long ago, that I can't remember.  If so, you can go to https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF5-Command-Line-Tools and install the proper tools.  

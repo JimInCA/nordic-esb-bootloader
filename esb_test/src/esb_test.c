@@ -121,7 +121,7 @@ int32_t main(int32_t argc, uint8_t **argv)
     uint32_t verbose = 0;
 
     int32_t attempt;
-    uint32_t rdlen, wrlen;
+    unsigned long int rdlen, wrlen;
     uint8_t rd_buf[256];
     uint8_t wr_buf[256];
 
