@@ -40,7 +40,7 @@ Please be aware that the file and com port are mandatory.
 
 Running the Loader Program
 ---
-For this to work properly, the bootloader must be installed on your Nordic dongle and the bootloader must be enabled waiting for an image to be uploaded.  This may require taking the boot pin defined in the bootloader to its active state.
+For this to work properly, the bootloader must be installed on your Nordic dongle and the bootloader must be enabled waiting for an image to be uploaded.  This may require taking the boot pin defined in the bootloader to its active state.  Also, the application program must be build with the load file set properly to work with the bootloader.  Please see the bootloader README for more details.
 
 The blinky program will be used as an example.  To load the blinky application, you will need to enter the following command as shown below:
 ```

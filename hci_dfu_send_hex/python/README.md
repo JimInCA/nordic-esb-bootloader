@@ -17,7 +17,7 @@ pip install intelhex
 
 Running the Loader
 ---
-For this to work properly, the bootloader must be installed on your Nordic dongle and the bootloader must be enabled waiting for an image to be uploaded.  This may require taking the boot pin defined in the bootloader to its active state.
+For this to work properly, the bootloader must be installed on your Nordic dongle and the bootloader must be enabled waiting for an image to be uploaded.  This may require taking the boot pin defined in the bootloader to its active state.  Also, the application program must be build with the load file set properly to work with the bootloader.  Please see the bootloader README for more details.
 
 This program can take the following command line arguments:
 ```
