@@ -13,7 +13,7 @@ To me, this always seems to be a little bit of a struggle for there isn't one si
 
 Building the Test Program
 ---
-Once you can run make and have it call gcc, building the test program is as simple as entering the fillowing command:
+Once you can run make and have it call gcc, building the test program is as simple as entering the following command:
 ```
 $ cd <path>/nordic_esb/esb_test
 $ make all
