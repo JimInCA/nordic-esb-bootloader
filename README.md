@@ -65,3 +65,9 @@ To install the firmware, all you will need to do is to have the dongle installed
 make flash
 ```
 This should install the firmware on the dongle.  At least, I hope this will work.  I may have forgotten that the JLINK software needs to be installed, but I did this so long ago, that I can't remember.  If so, you can go to https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF5-Command-Line-Tools and install the proper tools.  
+
+A Little Bit Of History
+---
+This code was originally developed to run under embedded Linux.  I had a lot of fun developing all the different facets of this project and wanted to release it so that others can use it as well.  But to make it more general, I ported it to Windows 10.  Although the documentation that I've provided shows how to build the code using arm-gcc for the Nordic code and gcc for the host programs, I've also included the proper uVision 5 project files so that you can build the Nordic code using Keil5 and Visual Studio solution files for the application code.  The choice as to which to use is up to you.
+
+Have Fun!
