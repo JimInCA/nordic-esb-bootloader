@@ -1,7 +1,30 @@
 Nordic ESB w/Bootloader Firmware
 ===
 
-This repository contains the code to build the firmware for the Nordic RF devices that support the Nordic proprietary Enhanced Shock Burst (ESB) protocol.  Included in this repository is a bootloader that is compatible with the ESB protocol.  This bootloader provides the ability to update the application firmware with an included loader.  
+This repository contains the code to build the firmware for the Nordic RF devices that support the Nordic proprietary Enhanced Shock Burst (ESB) protocol.  Included in this repository is a bootloader that is compatible with the ESB protocol.  This bootloader provides the ability to update the application firmware with an included loader.
+
+So why ESB with the Nordic BLE device?  The answer is very simple; ESB has a higher bandwidth and lower over-head than BLE.
+
+Repository Overview
+---
+There are a number of different parts to this repository that make up everything that you should need in order to build and test the esb firmware.  To aid in this objective, I've added a README to several of the sub-directories with instructions specific to that application.  
+
+Here is a list of the different pieces of firmware and applications that make up  this package:
+
+| Directory | Description |
+| --- | --- |
+| esb_transceiver  | This is the primary firmware for this repository.  What it is exactly is a uart to esb bridge for transferring data between two Nordic devices with both setup to support the ESB protocol. |
+| esb_echo         | Echo program intended to be used for testing esb_transceiver.  What it does is echo back any valid esb packet that it receives. |
+| esb_test         | Host application program for testing the  esb_transceiver firmware.  What it does is generates packets of data, sends the data using the uart, and then expects to receive that same packet back from the uart port.  Includes README with full instructions on how to build and run this test program. |
+| bootloader       | Name says it all.  Includes README with full instructions on building the bootloader and application firmware. |
+| hci_dfu_send_hex | Host program for loading a hex file onto the Nordic device that has the bootloader preloaded.  Includes a README with full instructions on building and using this application.  Please be aware that there is both a Python and C version of this program. |
+| blinky           | Demo program that is intended for testing with the bootloader. |
+
+The rest of this README will list the software that you'll need to install in order to build the firmware that will be loaded on the Nordic devices.
+
+As stated above, this firmware can be built stand-alone or it can be built so that it supports a bootloader.  Please see the bootloader README for more information on building the firmware that will be used with the bootloader.
+
+All firmware included here supports the Nordic PCA10031 dongle.  It's up to the user to port this firmware over to different Nordic devices of your choosing.
 
 Installing the Build Environment
 ---
