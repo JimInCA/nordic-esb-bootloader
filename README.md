@@ -68,7 +68,7 @@ Please be aware that you may also have to update the following file so that it p
 Building the Source Code
 ---
 
-Once you have everything installed and updated, you're ready for build our firmware.
+Once you have everything installed and updated, you're ready to build the esb_transceiver firmware.
 
 To build the firmware, go to the following directory:
 ```
@@ -78,7 +78,7 @@ Building the source code is a simple matter of entering the following command at
 ```
 make all
 ```
-The firmware binary will be placed in the '.\armgcc\_build' directory.
+The firmware binary will be placed in the './armgcc/_build' directory.
 
 Installing the firmware
 ---
@@ -93,4 +93,4 @@ A Little Bit Of History
 ---
 This code was originally developed to run under embedded Linux.  I had a lot of fun developing all the different facets of this project and wanted to release it so that others can use it as well.  But to make it more general, I ported it to Windows 10.  Although the documentation that I've provided shows how to build the code using arm-gcc for the Nordic code and gcc for the host programs, I've also included the proper uVision 5 project files so that you can build the Nordic code using Keil5 and Visual Studio solution files for the application code.  The choice as to which to use is up to you.
 
-Have Fun!
+And most of all, Have Fun!
