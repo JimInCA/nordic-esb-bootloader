@@ -80,7 +80,7 @@ void clocks_start( void )
 
 void gpio_init( void )
 {
-    bsp_board_leds_init();
+    bsp_board_init(BSP_INIT_LEDS);
     nrf_gpio_cfg_output(scope_trig);
 }
 

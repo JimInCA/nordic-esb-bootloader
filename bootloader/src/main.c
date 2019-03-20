@@ -71,13 +71,13 @@ ALLIGN32 uint8_t bootloader_active = 1;
  * @param[in] line_num    Line number where the handler is called.
  * @param[in] p_file_name Pointer to the file name. 
  */
-//void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p_file_name)
-//{
-//    nrf_gpio_pin_set(BLUE);
+void app_error_handler(uint32_t error_code, uint32_t line_num, const uint8_t * p_file_name)
+{
+    nrf_gpio_pin_set(BLUE);
 
-//    // On assert, the system can only recover on reset.
-//    NVIC_SystemReset();
-//}
+    // On assert, the system can only recover on reset.
+    NVIC_SystemReset();
+}
 
 
 /**@brief Callback function for asserts in the SoftDevice.
@@ -135,7 +135,7 @@ int main(void)
     bool bootloader_is_pushed = false;
     
     // initialize
-    bsp_board_leds_init();
+    bsp_board_init(BSP_INIT_LEDS);
     timers_init();
     gpiote_init();
     gpio_init();

@@ -29,7 +29,7 @@ All firmware included here supports the Nordic PCA10031 dongle.  It's up to the 
 Installing the Build Environment
 ---
 
-The best way to do this is to go to the Nordic website and follow their instructions on installing the required environment.  This will require you to go to http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v14.x.x/.  When the page opens, click on nRF5_SDK_14.2.0_17b948a.zip to download and then expand the zip file.
+The best way to do this is to go to the Nordic website and follow their instructions on installing the required environment.  This will require you to go to http://developer.nordicsemi.com/nRF5_SDK/nRF5_SDK_v15.x.x/.  When the page opens, click on nRF5_SDK_15.3.0_59ac345.zip to download and then expand the zip file.
 
 Next, you'll need to install the ARM version of the gcc compiler.  You will first need to go to the ARM web site at https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads and download the correct version for your system.  Please be aware that there may be a problem with the latest version of the compiler.  The last version that I know of that will build the sources in this repository with out any errors is release 7.3.1.  You can try a later version, but be aware that you may get errors and that you may have to uninstall that version and go to an earlier version.
 
@@ -39,7 +39,7 @@ Once you have the build environment installed, both gcc and the Nordic SDK, you 
 
 The first thing that you will need to do is to create the following directory:
 ```
-cd <dev_dir>/nRF5_SDK_14.2.0_17b948a/
+cd <dev_dir>/nRF5_SDK_15.3.0_59ac345/
 mkdir development
 cd development
 ```
@@ -54,7 +54,7 @@ Updating Nordic source files
 
 You'll first need to make a modification to one of the Nordic source files in order to get our sources to build.  You will need to open the following file and update as described:
 ```
-<dev_dir>/nRF5_SDK_14.2.0_17b948a/components/proprietary_rf/esb/nrf_esb.h
+<dev_dir>/nRF5_SDK_15.3.0_59ac345/components/proprietary_rf/esb/nrf_esb.h
 ```
 Add the following #define:
 ```
@@ -62,7 +62,7 @@ Add the following #define:
 ```
 Please be aware that you may also have to update the following file so that it points to the correct gcc version that you are using:
 ```
-<dev_dir>/nRF5_SDK_14.2.0_17b948a/components/toolchain/gcc/Makefile.windows
+<dev_dir>/nRF5_SDK_15.3.0_59ac345/components/toolchain/gcc/Makefile.windows
 ```
 
 Building the Source Code
@@ -72,7 +72,7 @@ Once you have everything installed and updated, you're ready to build the esb_tr
 
 To build the firmware, go to the following directory:
 ```
-<dev_dir>/Nordic/nRF5_SDK_14.2.0_17b948a/development/nordic_esb/esb_transceiver/build/pca10031/armgcc
+<dev_dir>/Nordic/nRF5_SDK_15.3.0_59ac345/development/nordic_esb/esb_transceiver/build/pca10031/armgcc
 ```
 Building the source code is a simple matter of entering the following command at the prompt:
 ```
