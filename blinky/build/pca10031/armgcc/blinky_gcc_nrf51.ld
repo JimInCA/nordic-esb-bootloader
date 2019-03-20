@@ -19,4 +19,4 @@ SECTIONS
   } > RAM
 } INSERT AFTER .data;
 
-INCLUDE "nrf5x_common.ld"
+INCLUDE "nrf_common.ld"

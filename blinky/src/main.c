@@ -60,7 +60,7 @@ int main(void)
 {
     int16_t counter = 0;
     /* Configure board. */
-    bsp_board_leds_init();
+    bsp_board_init(BSP_INIT_LEDS);
 
     /* Toggle LEDs. */
     while (true)
