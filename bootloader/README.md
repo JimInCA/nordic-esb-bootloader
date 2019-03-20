@@ -26,48 +26,41 @@ Building the bootloader requires the modification of a few more source files in 
 
 First, you'll need to modify the following file:
 ```
-<dev_dir>/Nordic/nRF5_SDK_14.2.0_17b948a/components/drivers_nrf/gpiote/nrf_drv_gpiote.c
+<dev_dir>/Nordic/nRF5_SDK_15.3.0_59ac345/modules/nrfx/soc/nrfx_irqs_nrf51.h
 ```
-You will need to change the following lines from:
+You'll first need to change the following lines from:
 ```
-void GPIOTE_IRQHandler(void)
-{
+// UART0_IRQn
+#define nrfx_uart_0_irq_handler     UART0_IRQHandler
 ```
-To
+To:
 ```
+// UART0_IRQn
 #ifdef BOOTLOADER_BUILD
-void GPIOTE_IRQHandler_Bootloader(void)
+#define nrfx_uart_0_irq_handler     UART0_IRQHandler_Bootloader
 #else
-void GPIOTE_IRQHandler(void)
-#endif
-{
-```
-The next change is to the following file:
-```
-<dev_dir>/Nordic/nRF5_SDK_14.2.0_17b948a/components/drivers_nrf/uart/nrf_drv_uart.c
-```
-You will need to to change the following line from:
-``` 
-#ifdef NRF52810_XXAA
-    #define IRQ_HANDLER(n) void UARTE##n##_IRQHandler(void)
-```
-
-To
-```
-#if (defined(NRF52810_XXAA))
-    #define IRQ_HANDLER(n) void UARTE##n##_IRQHandler(void))
-#elif (defined(BOOTLOADER_BUILD))
-    #define IRQ_HANDLER(n) void UART##n##_IRQHandler_Bootloader(void)
-#else
-    #define IRQ_HANDLER(n) void UART##n##_IRQHandler(void)
+#define nrfx_uart_0_irq_handler     UART0_IRQHandler
 #endif
 ```
-
-And then we will need to modify this file:
+And next, you'll need to change the following lines from:
 ```
-<dev_dir>/Nordic/nRF5_SDK_14.2.0_17b948a/components/libraries/timer/app_timer.c
+// GPIOTE_IRQn
+#define nrfx_gpiote_irq_handler     GPIOTE_IRQHandler
 ```
-This file requires the following two changes:
+To:
+```
+// GPIOTE_IRQn
+#ifdef BOOTLOADER_BUILD
+#define nrfx_gpiote_irq_handler     GPIOTE_IRQHandler_Bootloader
+#else
+#define nrfx_gpiote_irq_handler     GPIOTE_IRQHandler
+#endif
+```
+Next, you'll need to modify this file:
+```
+<dev_dir>/Nordic/nRF5_SDK_15.3.0_59ac345/components/libraries/timer/app_timer.c
+```
+This file requires the following two changes from:
 ``` 
 void RTC1_IRQHandler(void)
 
@@ -75,6 +68,7 @@ void RTC1_IRQHandler(void)
 
 void SWI_IRQHandler(void)
 ```
+To:
 ``` 
 #ifdef BOOTLOADER_BUILD
 void RTC1_IRQHandler_Bootloader(void)
@@ -93,7 +87,7 @@ void SWI_IRQHandler(void)
 
 Once you have everything above competed, you should then be able to build the bootloader by going to the following directory and entering make all at the command prompt:
 ```
-cd <dev_dir>/Nordic/nRF5_SDK_14.2.0_17b948a/development/multiplayer_rf/bootloader/build/pca10031/armgcc
+cd <dev_dir>/Nordic/nRF5_SDK_15.3.0_59ac345/development/nordic_esb/bootloader/build/pca10031/armgcc
 make all
 ```
 Loading the bootloader firmware onto the dongle is as simple as shown below:
