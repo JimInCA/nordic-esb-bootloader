@@ -1,6 +1,6 @@
 blinky
 ===
-The intend of the blinky application is for testing.  It will be used to test the build environment.  Later, it will be used for testing the initial installation of the bootloader.
+The intent of the blinky application is for testing.  It will be used to test the build environment.  Later, it will be used for testing the initial installation of the bootloader.
 
 Build Environment and Source Code
 ---
@@ -10,7 +10,7 @@ Updating Nordic source files
 ---
 You'll first need to make a modification to one of the Nordic source files in order for the blinky application to run properly.  You will need to open the following file and update as described:
 ```
-<dev_dir>/nRF5_SDK_16.0.0_98a08e2/components/proprietary_rf/esb/nrf_esb.h
+<dev_dir>/nRF5_SDK_16.0.0_98a08e2/components/boards/pca10031.h
 ```
 You will need to modify the following line from:
 ```

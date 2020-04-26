@@ -1,6 +1,6 @@
 esb_echo
 ===
-This application will be used for testing esb_transceiver.    
+This application will be used for testing esb_transceiver.  What it does is simply echo back everything that it receives on its ESB receiver back to its ESB transmitter.
 
 Build Environment and Source Code
 ---
