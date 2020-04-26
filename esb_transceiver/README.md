@@ -1,6 +1,8 @@
 esb_transceiver
 ===
-This is the main application that we will be using to test the bootloader.  But fist, we will be building esb_transceiver as a stand along application.  
+Fundamentally, this application is nothing more than a USB to ESB bridge.  What it does is that it will transmit all data that it receives from the UART interface to the ESB interface.  It will also send all data that it receives on the ESB interface to the UART Interface. 
+
+Ultimately, we will be using this application to test the bootloader.  But fist, we will be building esb_transceiver as a stand along application.  Please see the README.md file in the bootloader directory for more information on how to build this application so that it will work with the bootloader.
 
 Build Environment and Source Code
 ---

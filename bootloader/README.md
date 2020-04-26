@@ -130,7 +130,7 @@ MEMORY
 ```
 As you can see, we are telling the loader to start our application at flash address 0x5400 and that it can have a maximum length of 0x3AC00.  This is to account for the bootloader which is loaded in flash memory from address 0x0000 to 0x4FFF and uses address 0x5000 to 0x53FF for its settings page.  We also have to tell the bootloader that the available memory is reduced by this amount.  And the same thing is true for the ram in that we are instructing the loader that we want our application to use ram starting at address 0x20002000 and that there is a maximum of 0x6000 bytes for it to use.  And that's it for the changes to the application.  I don't think that you can get simpler than that.
 
-The next step is to compile the application which can be done with a simple make all.  But just in case, you may want to do a make clean first to make sure that nothing is left over from an earlier build.  Yuo now should be ready to load your application using he bootloader.
+The next step is to compile the application which can be done with a simple make all.  But just in case, you may want to do a make clean first to make sure that nothing is left over from an earlier build.  You now should be ready to load your application using he bootloader.
 
 Loading an Application using the Bootloader
 ---
@@ -143,7 +143,7 @@ Let's start by going to the directory for the compiled version of hci_dfu_send_h
 ```
 cd <path>/hci_dfu_send_hex/c/
 ```
-The first thing that you'll need to do is to get the bootloader in an active state where is is waiting for an application to be loaded onto the device.  If you just flashed to bootloader as described above, this it should be in this state.  So assuming the directory structure defined in this repository, you should be able to load the blinky application with the following command and arguments:
+The first thing that you'll need to do is to get the bootloader in an active state where is is waiting for an application to be loaded onto the device.  If you just flashed to bootloader as described above, then it should be in this state.  So assuming the directory structure defined in this repository, you should be able to load the blinky application with the following command and arguments:
 ```
 $ ./x64/Debug/hci_dfu_send_hex -f ../../blinky/build/pca10031/armgcc/_build/blinky.hex -p COM8 -b 115200
 Successfully connected to UART on port COM8 at baud rate 115200.
@@ -155,6 +155,6 @@ Progress:  93
 Progress:  100
 ```
 
-If all goes well, hci_def_send_hex should complete with 100% progress and the dongle's led should start to flash red, green, and blue. 
+If all goes well, hci_def_send_hex should complete with 100% progress and the dongle's RGB LED should start to flash RED, GREEN, and BLUE with an approximate 0.5 second delay between steps.
 
 That's all folks!
