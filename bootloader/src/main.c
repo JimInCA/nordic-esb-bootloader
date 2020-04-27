@@ -122,7 +122,7 @@ static void timers_init(void)
  */
 static void gpio_init(void)
 {
-    nrf_gpio_cfg_input(BOOTLOADER_GPIO_PIN, NRF_GPIO_PIN_PULLDOWN);
+    nrf_gpio_cfg_input(BOOTLOADER_GPIO_PIN, NRF_GPIO_PIN_PULLUP);
 }
 
 
