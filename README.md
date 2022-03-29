@@ -80,7 +80,7 @@ The main focus of this repository is the bootloader.  But as listed above, there
 
 This is the host program for loading a hex file onto the Nordic device that has the bootloader preloaded.  You will find a README.md in the directory for the hci_dfu_send_hex program with full instructions on building and using this application.  
 
-The source directory for hci_dfu_send_hex includes both a c version and and python version of the program.  But programs works identically and the choice as to which one to use is upn the personal preferences of the user.
+The source directory for hci_dfu_send_hex includes both a c version and and python version of the program.  Both programs works identically and the choice as to which one to use is up to the personal preferences of the user.
 
 A Little Bit Of History
 ---
